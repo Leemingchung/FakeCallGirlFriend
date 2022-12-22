@@ -1,5 +1,6 @@
 package com.example.fakecall ;
 
+import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.KeyguardManager;
 import android.content.Context;
@@ -17,10 +18,13 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 //import com.google.android.gms.ads.AdRequest;
 //import com.google.android.gms.ads.InterstitialAd;
@@ -28,6 +32,7 @@ import android.widget.TextView;
 import static android.view.WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED;
 import static android.view.WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON;
 
+import androidx.annotation.DrawableRes;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class CallActivity extends AppCompatActivity {
@@ -38,8 +43,14 @@ public class CallActivity extends AppCompatActivity {
     ImageView callerImg;
     RelativeLayout calling;
     Boolean check = Boolean.FALSE;
+    Boolean checkCalender = Boolean.TRUE;
+    Boolean checkNote = Boolean.TRUE;
+    Boolean checkAddcall = Boolean.TRUE;
+    Boolean checkPerson = Boolean.TRUE;
+    Boolean checkMute = Boolean.TRUE;
     Context context;
-    ImageView imageView;
+    ImageView imageView ;
+    ImageView hold , calenda , note , addcall , person , mute ;
     TextView inCall;
     TextView incomming;
     boolean locked;
@@ -58,7 +69,7 @@ public class CallActivity extends AppCompatActivity {
     Thread t;
 //    InterstitialAd mInterstitialAd;
 //    AdRequest adRequestint;
-
+    @SuppressLint("MissingInflatedId")
     @TargetApi(16)
     protected void onCreate(Bundle savedInstanceState) {
         //locked = ((KeyguardManager) getSystemService("keyguard")).inKeyguardRestrictedInputMode();
@@ -77,6 +88,13 @@ public class CallActivity extends AppCompatActivity {
         incomming = (TextView) findViewById(R.id.timer);
         inCall = (TextView) findViewById(R.id.text_in_call);
         imageView = (ImageView) findViewById(R.id.speaker);
+        hold = (ImageView) findViewById(R.id.imgHold) ;
+        calenda = (ImageView) findViewById(R.id.imgCalender) ;
+        note = (ImageView) findViewById(R.id.imgNote) ;
+        addcall = (ImageView) findViewById(R.id.imgaddCall) ;
+        person = (ImageView) findViewById(R.id.imgcontacts) ;
+        mute = (ImageView) findViewById(R.id.imgmute) ;
+        //hold = (TextView) findViewById(R.id.hold);
         sharedPref = getSharedPreferences("file", 0);
         nameText = (TextView) findViewById(R.id.caller_name);
         phoneText = (TextView) findViewById(R.id.caller_number);
@@ -87,17 +105,6 @@ public class CallActivity extends AppCompatActivity {
         setCaller();
 
     }
-//    private void loadInterstitialAd() {
-//        adRequestint = new AdRequest.Builder().addTestDevice("0224C93FFD644350DCD7F3D7557C6A5C").build();
-//        mInterstitialAd = new InterstitialAd(getApplicationContext());
-//        mInterstitialAd.setAdUnitId(getResources().getString(R.string.interstitial_full_screen));
-//        mInterstitialAd.loadAd(adRequestint);
-//    }
-//    private void showInterstitial() {
-//        if (mInterstitialAd.isLoaded()) {
-//            mInterstitialAd.show();
-//        }
-//    }
 
     void ring() {
         try {
@@ -189,7 +196,16 @@ public class CallActivity extends AppCompatActivity {
         startActivity(new Intent(this, MainActivity.class));
         finish();
     }
-
+    public  void OnClickHold(View view)
+    {
+        if (check) {
+            hold.setImageResource(R.drawable.ic_phone_paused_black_24dp);
+            check = Boolean.FALSE;
+            return;
+        }
+        hold.setImageResource(R.drawable.ic_baseline_call_24);
+        check = Boolean.TRUE;
+    }
     public void OnClickSpeaker(View view) {
         if (check) {
             mp.pause();
@@ -380,5 +396,57 @@ public class CallActivity extends AppCompatActivity {
         startActivity(new Intent(this, MainActivity.class));
         //showInterstitial();
         finish();
+    }
+
+
+    public void OnClickcalende(View view) {
+       // boolean checkCalender = true ;
+        if (checkCalender) {
+            calenda.setImageResource(R.drawable.ic_baseline_perm_contact_calendar_24);
+            checkCalender = Boolean.FALSE;
+            return;
+        }
+        calenda.setImageResource(R.drawable.ic_perm_contact_calendar_black_24dp);
+        checkCalender = Boolean.TRUE;
+    }
+
+    public void OnClickNote(View view) {
+        if (checkNote) {
+            note.setImageResource(R.drawable.note);
+            checkNote = Boolean.FALSE;
+            return;
+        }
+        note.setImageResource(R.drawable.ic_note_add_black_24dp);
+        checkNote = Boolean.TRUE;
+    }
+
+    public void OnClickAddcal(View view) {
+        if (checkAddcall) {
+            addcall.setImageResource(R.drawable.addcallll);
+            checkAddcall = Boolean.FALSE;
+            return;
+        }
+        addcall.setImageResource(R.drawable.addcall);
+        checkAddcall = Boolean.TRUE;
+    }
+
+    public void OnClickContacs(View view) {
+        if (checkPerson) {
+            person.setImageResource(R.drawable.ic_baseline_person_pin_24);
+            checkPerson = Boolean.FALSE;
+            return;
+        }
+        person.setImageResource(R.drawable.ic_baseline_person_pin_24444);
+        checkPerson = Boolean.TRUE;
+    }
+
+    public void OnClickMic(View view) {
+        if (checkMute) {
+            mute.setImageResource(R.drawable.ic_baseline_mic_none_244444);
+            checkMute = Boolean.FALSE;
+            return;
+        }
+        mute.setImageResource(R.drawable.ic_mic_black_24dp);
+        checkMute = Boolean.TRUE;
     }
 }

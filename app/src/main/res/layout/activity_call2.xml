@@ -123,17 +123,50 @@
         android:layout_alignParentLeft="true"
         android:visibility="gone">
 
-        <TextView
-            android:id="@+id/hold"
+<!--        <TextView-->
+<!--            android:id="@+id/hold"-->
+<!--            android:onClick="OnClickHold"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_alignRight="@+id/mute"-->
+<!--            android:layout_alignTop="@+id/calender"-->
+<!--            android:drawablePadding="4dp"-->
+<!--            android:drawableTop="@drawable/ic_phone_paused_black_24dp"-->
+<!--            android:text="Hold" />-->
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignRight="@+id/mute"
             android:layout_alignTop="@+id/calender"
-            android:drawablePadding="4dp"
-            android:drawableTop="@drawable/ic_phone_paused_black_24dp"
-            android:text="Hold" />
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            >
+            <ImageView
+                android:id="@+id/imgHold"
+                android:onClick="OnClickHold"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/ic_phone_paused_black_24dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hold"
+                />
+        </LinearLayout>
 
-        <TextView
+<!--        <TextView-->
+<!--            android:id="@+id/calender"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_above="@+id/mute"-->
+<!--            android:layout_alignParentLeft="true"-->
+<!--            android:layout_marginBottom="20dp"-->
+<!--            android:drawablePadding="4dp"-->
+<!--            android:drawableTop="@drawable/ic_perm_contact_calendar_black_24dp"-->
+<!--            android:paddingLeft="40dp"-->
+<!--            android:text="Calender" />-->
+        <LinearLayout
             android:id="@+id/calender"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -143,9 +176,33 @@
             android:drawablePadding="4dp"
             android:drawableTop="@drawable/ic_perm_contact_calendar_black_24dp"
             android:paddingLeft="40dp"
-            android:text="Calender" />
-
-        <TextView
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            >
+            <ImageView
+               android:id="@+id/imgCalender"
+                android:onClick="OnClickcalende"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/ic_perm_contact_calendar_black_24dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="calender"
+                />
+        </LinearLayout>
+<!--        <TextView-->
+<!--            android:id="@+id/note"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_alignBaseline="@id/calender"-->
+<!--            android:layout_alignBottom="@id/calender"-->
+<!--            android:layout_alignLeft="@+id/contacts"-->
+<!--            android:drawablePadding="4dp"-->
+<!--            android:drawableTop="@drawable/ic_note_add_black_24dp"-->
+<!--            android:text="Notepad" />-->
+        <LinearLayout
             android:id="@+id/note"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -153,39 +210,124 @@
             android:layout_alignBottom="@id/calender"
             android:layout_alignLeft="@+id/contacts"
             android:drawablePadding="4dp"
-            android:drawableTop="@drawable/ic_note_add_black_24dp"
-            android:text="Notepad" />
-
-        <TextView
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            >
+            <ImageView
+                android:id="@+id/imgNote"
+                android:onClick="OnClickNote"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/ic_note_add_black_24dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Notepad"
+                />
+        </LinearLayout>
+<!--        <TextView-->
+<!--            android:id="@+id/addcall"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_alignRight="@id/calender"-->
+<!--            android:layout_centerVertical="true"-->
+<!--            android:drawablePadding="4dp"-->
+<!--            android:drawableTop="@drawable/addcall"-->
+<!--            android:text="Add Call" />-->
+        <LinearLayout
             android:id="@+id/addcall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignRight="@id/calender"
             android:layout_centerVertical="true"
             android:drawablePadding="4dp"
-            android:drawableTop="@drawable/addcall"
-            android:text="Add Call" />
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            >
+            <ImageView
+                android:id="@+id/imgaddCall"
+                android:onClick="OnClickAddcal"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/addcall"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add call"
+                />
+        </LinearLayout>
 
-        <TextView
+<!--        <TextView-->
+<!--            android:id="@+id/contacts"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_alignParentRight="true"-->
+<!--            android:layout_alignTop="@id/addcall"-->
+<!--            android:drawablePadding="4dp"-->
+<!--            android:drawableTop="@drawable/ic_person_pin_black_24dp"-->
+<!--            android:paddingRight="40dp"-->
+<!--            android:text="Contacts" />-->
+
+        <LinearLayout
             android:id="@+id/contacts"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_alignTop="@id/addcall"
             android:drawablePadding="4dp"
-            android:drawableTop="@drawable/ic_person_pin_black_24dp"
             android:paddingRight="40dp"
-            android:text="Contacts" />
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            >
+            <ImageView
+                android:id="@+id/imgcontacts"
+                android:onClick="OnClickContacs"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/ic_baseline_person_pin_24444"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Contacts"
+                />
+        </LinearLayout>
 
-        <TextView
+<!--        <TextView-->
+<!--            android:id="@+id/mute"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_alignTop="@id/addcall"-->
+<!--            android:layout_centerHorizontal="true"-->
+<!--            android:drawablePadding="4dp"-->
+<!--            android:drawableTop="@drawable/ic_mic_black_24dp"-->
+<!--            android:text="Mute" />-->
+
+        <LinearLayout
             android:id="@+id/mute"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignTop="@id/addcall"
             android:layout_centerHorizontal="true"
             android:drawablePadding="4dp"
-            android:drawableTop="@drawable/ic_mic_black_24dp"
-            android:text="Mute" />
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            >
+            <ImageView
+                android:id="@+id/imgmute"
+                android:onClick="OnClickMic"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/ic_mic_black_24dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mute"
+                />
+        </LinearLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
