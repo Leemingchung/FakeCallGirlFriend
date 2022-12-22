@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">FakeCall</string>
+    //
+    <string name="rate_dialog_no">No, Thanks</string>
+    <string name="rate_dialog_cancel">Remind Me Later</string>
+    <string name="rate_dialog_ok">Rate It Now</string>
+    <string name="rate_dialog_message">"If you enjoy playing this app, would you mind taking a moment to rate it? It won't take more than a minute. Thanks for your support!"</string>
+    <string name="banner_home">ca-app-pub-7838930253310927/4068684986</string>
+    <string name="banner_schedule">ca-app-pub-7838930253310927/4909803997</string>
+    <string name="banner_character">ca-app-pub-7838930253310927/3788294015</string>
+    <string name="interstitial_full_screen">ca-app-pub-7838930253310927/3405150632</string>
+    <string name="developer_id">DEV_ID</string>
+</resources>
